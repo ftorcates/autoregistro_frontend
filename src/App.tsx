@@ -1,26 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { AuthProvider } from "./context/authContext";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
+import routes from "./Router/route";
+import AppRoute from "./Router/AppRoute";
+import Navigation from "./Components/Navigation";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <AuthProvider>
+        <Router>          
+          <Navigation></Navigation>
+          <Switch>
+            {
+              routes.map(route => <AppRoute 
+              component={route.component}
+              path={route.path}
+              routeType={route.routeType}
+              key={route.path}
+              exact
+              ></AppRoute>)
+            }                    
+          </Switch>
+        </Router>
+    </AuthProvider>      
   );
+
 }
 
 export default App;

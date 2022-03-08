@@ -25,11 +25,14 @@ const Navigation = () => {
                     </Nav>
                     <Nav className="justify-content-end">
                         { user.isAuthenticated ? 
+                        <>
+                            <Nav.Link as={Link} to="/createPoll">Crear encuesta</Nav.Link>
                             <NavDropdown title={user.email} id="navbar-dropdown">
                                 <NavDropdown.Item as={Link} to="/user">Mis encuentas</NavDropdown.Item>
                                 <NavDropdown.Divider></NavDropdown.Divider>
                                 <NavDropdown.Item onClick={logout}>Cerrar sesión</NavDropdown.Item>
                             </NavDropdown> 
+                        </>                            
                         : 
                             <>
                                 <Nav.Link as={Link} to="/login">Iniciar sesión</Nav.Link>

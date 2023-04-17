@@ -32,3 +32,79 @@
         opacity: 1;
     }
 }
+
+.polls-table {
+    width: "90%";
+    .polls-table-controls {
+        font-size: 16px;
+        color: $blue;
+        text-align: center;
+        span {
+            cursor: pointer;
+            margin: 0 6px;
+        }
+
+    }
+}
+
+.report-details {
+    font-size: 16px;
+    font-weight: bold;
+
+}
+
+.custom-ui {
+    padding: 10px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 24px -2px;
+}
+
+.navbar-dark {
+    background-color:rgb(43, 110, 235);
+    color:honeydew;    
+}
+
+.navdropdown-blue {
+    background-color: rgb(52, 120, 247);
+}
+
+.button-blue {
+    background-color:rgb(43, 110, 235);
+    color:honeydew; 
+    &:hover {
+        opacity: 1;
+        background-color:rgb(43, 110, 235);
+    }
+}
+
+.chart-pie-container {
+    max-width: 400px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.chart-bar-container {
+    max-width: 800px;
+    margin: 0 auto;
+    margin-top: 3rem;
+}
+
+.text-user {
+    font-weight: 500;
+}
+
+.text-12 {
+    font-size: 14px;
+}
+
+.text-16-bold {
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.no-link {
+    text-decoration: none;
+    color: rgb(43, 110, 235);
+    font-size: 16px;
+    font-weight: bold;
+}

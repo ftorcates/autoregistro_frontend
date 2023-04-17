@@ -3,7 +3,7 @@ import { User } from "../types";
 import jwt_decode from "jwt-decode";
 
 const TOKEN_KEY = "token";
-const defaultUser: User = {email: "", token: "", isAuthenticated: false};
+const defaultUser: User = {username: "", token: "", isAuthenticated: false};
 
 const setToken = (token: string) => {
     localStorage.setItem(TOKEN_KEY, token);
@@ -49,7 +49,7 @@ export const authenticate = (token?: string): User => {
     axios.defaults.headers.common["Authorization"] = _token;
 
     //devolvemos el usuario autorizado, sobreescribiendo las propiedades sobre el default
-    return {...defaultUser, email: decoded.sub, isAuthenticated: true, token: _token};
+    return {...defaultUser, username: decoded.sub, isAuthenticated: true, token: _token};
 }
 
 export const logout = (): User => {

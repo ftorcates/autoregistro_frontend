@@ -11,6 +11,7 @@ import { useAuthDispatch, useAuthState } from "../context/authContext";
 
 const Register = () => {
 
+    const [username, setUsername] = useState("");
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -26,10 +27,12 @@ const Register = () => {
         e.preventDefault();
         try {
             setSendingData(true);
+            setUsername(email);
             //Registro de usuario
-            await registerUser(name, email, password);
+            const role = 'User';
+            await registerUser(username, name, email, password, role);
             //Inicio de sesion 
-            const res = await loginUser(email, password);
+            const res = await loginUser(username, password);
             const token = res.data.token;
             authDispatch({
                 type: 'login',
@@ -62,7 +65,7 @@ const Register = () => {
                                     <Form.Control.Feedback type="invalid">
                                         { errors?.name}
                                     </Form.Control.Feedback>
-                                </Form.Group>
+                                </Form.Group>                                
 
                                 <Form.Group className="mb-3" controlId="email">
                                     <Form.Label>Correo electrónico</Form.Label>
@@ -86,7 +89,7 @@ const Register = () => {
                                     <Form.Control.Feedback type="invalid">
                                         { errors?.password}
                                     </Form.Control.Feedback>                                
-                                </Form.Group>
+                                </Form.Group>                                
 
                                 <Button type="submit"> 
                                 {sendingData ? <>

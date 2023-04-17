@@ -1,31 +1,10 @@
+import { ChartData } from "chart.js";
+
 export type User = {
-    email: string,
+    username: string,
     token: string,
     isAuthenticated: boolean
 };
-
-export type Poll = {
-    id: string,
-    errors: {},
-    content: string,
-    opened: boolean,
-    questions: Question[]
-}
-
-export type Question = {
-    id: string,
-    content: string,
-    questionOrder: number,
-    type: QuestionType,
-    answers: Answer[]
-}
-
-export type Answer = {
-    id: string,
-    content: string
-}
-
-export type QuestionType = "RADIO" | "CHECKBOX" | "SELECT";
 
 export type RouteType = "PRIVATE" | "PUBLICO" | "INVITADO";
 
@@ -34,3 +13,41 @@ export type Route = {
     component: any,
     routeType: RouteType
 };
+
+export type Stream = {
+    idStream: string,
+    descriptionStream: string
+};
+
+export type Error = {
+    idStreamErr: string,
+    idError: string,
+    descriptionError: string
+};
+
+export type Summary = {
+    idError: string,
+    idErrorSummary: string,
+    descriptionSummary: string
+}
+
+export type Responsable = {
+    username: string,
+    name: string
+}
+
+export type Streams = {
+    stream: Stream[]
+}
+
+export type Stat = {
+    dato: string,
+    contador: number
+}
+
+export type StatsChartData = {
+    data: ChartData,
+    title: string
+}
+
+export type ChartType = "PIE" | "BAR";

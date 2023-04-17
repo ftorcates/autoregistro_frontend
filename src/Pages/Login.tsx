@@ -12,7 +12,7 @@ import { useAuthDispatch} from "../context/authContext";
 
 const Login = () => {
 
-    const [email, setEmail] = useState("");
+    const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [error, setError] = useState("");
     const [sendingData, setSendingData] = useState(false);
@@ -24,7 +24,7 @@ const Login = () => {
         try {
             setSendingData(true);
             setError("");
-            const res = await loginUser(email, password);
+            const res = await loginUser(username, password);
             const token = res.data.token;
             authDispatch({
                 type: 'login',
@@ -51,12 +51,12 @@ const Login = () => {
                             <h4>Iniciar sesión</h4><hr />
 
                             <Form onSubmit={login}>
-                                <Form.Group className="mb-3" controlId="email">
-                                    <Form.Label>Correo electrónico</Form.Label>
+                                <Form.Group className="mb-3" controlId="username">
+                                    <Form.Label>Usuario</Form.Label>
                                     <Form.Control 
-                                        value={email}
-                                        onChange={e => setEmail(e.target.value)}
-                                        type="email" placeholder="Ej: johnDoe@gmail.com"></Form.Control>
+                                        value={username}
+                                        onChange={e => setUsername(e.target.value)}
+                                        type="text"></Form.Control>
                                    
                                 </Form.Group>
 
